@@ -1,5 +1,9 @@
+import com.workintech.pool.Rectangle;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Rectangle rectangle = new Rectangle(10,10);
+        System.out.println(rectangle.getArea());
     }
 }
+

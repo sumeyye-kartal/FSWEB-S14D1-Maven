@@ -9,10 +9,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.reflect.Field;
+import java.util.Locale;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(ResultAnalyzer.class)
@@ -46,7 +48,7 @@ public class MainTest {
     @Test
     public void testCircleAccessModifiers() throws NoSuchFieldException {
         Field radiusField = circle.getClass().getDeclaredField("radius");
-        assertEquals(radiusField.getModifiers(), 2);
+        assertEquals(2, radiusField.getModifiers());
     }
 
     @DisplayName("Circle sınıf değişkenleri doğru type a sahip mi ?")
@@ -65,7 +67,7 @@ public class MainTest {
     @Test
     public void testCylinderAccessModifiers() throws NoSuchFieldException {
         Field heightField = cylinder.getClass().getDeclaredField("height");
-        assertEquals(heightField.getModifiers(), 2);
+        assertEquals(2, heightField.getModifiers());
     }
 
     @DisplayName("Cylinder sınıfı ve değişkenleri doğru type a sahip mi ?")
@@ -85,9 +87,9 @@ public class MainTest {
     @Test
     public void testRectangleAccessModifiers() throws NoSuchFieldException {
         Field widthField = rectangle.getClass().getDeclaredField("width");
-        assertEquals(widthField.getModifiers(), 2);
+        assertEquals(2, widthField.getModifiers());
         Field lengthField = rectangle.getClass().getDeclaredField("length");
-        assertEquals(lengthField.getModifiers(), 2);
+        assertEquals(2, lengthField.getModifiers());
     }
 
     @DisplayName("Rectangle sınıf değişkenleri doğru type a sahip mi ?")
@@ -100,14 +102,14 @@ public class MainTest {
     @DisplayName("getArea methodu Rectangle sınıfında doğru çalışıyor mu?")
     @Test
     public void testGetAreaRectangle() throws NoSuchFieldException {
-        assertEquals(String.format("%.2f", rectangle.getArea()), "2.00");
+        assertEquals(String.format(Locale.US,"%.2f", rectangle.getArea()), "2.00");
     }
 
     @DisplayName("Cuboid sınıf değişkenleri doğru access modifier a sahip mi ?")
     @Test
     public void testCuboidAccessModifiers() throws NoSuchFieldException {
         Field widthField = cuboid.getClass().getDeclaredField("height");
-        assertEquals(widthField.getModifiers(), 2);
+        assertEquals(2, widthField.getModifiers());
     }
 
     @DisplayName("Cuboid sınıf değişkenleri doğru type a sahip mi ?")
@@ -120,7 +122,7 @@ public class MainTest {
     @DisplayName("getVolume methodu Cuboid sınıfında doğru çalışıyor mu?")
     @Test
     public void testGetVolumeRectangle() throws NoSuchFieldException {
-        assertEquals(String.format("%.2f", cuboid.getVolume()), "6.00");
+        assertEquals(String.format(Locale.US,"%.2f", cuboid.getVolume()), "6.00");
     }
 
     @DisplayName("Employee sınıf değişkenleri doğru access modifier a sahip mi ?")
@@ -134,7 +136,7 @@ public class MainTest {
         assertEquals(salaryField.getModifiers(), 2);
     }
 
-    @DisplayName("Employee sınıf değişkenleri doğru type a sahip mi ?")
+    @DisplayName("Employee sınıf değişkenleri dour type a sahip mi ?")
     @Test
     public void testEmployeeTypes() throws NoSuchFieldException {
         assertThat(employee.getId(), instanceOf(Number.class));
